@@ -1,0 +1,24 @@
+{
+  "name": "nestjs-enlighten",
+  "version": "0.1.0",
+  "description": "A laravel-ignition like error page for NestJS Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozkanonur/nestjs-enlighten.git"
+  },
+  "author": "Onur Ozkan <onurozkan.dev@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "error-page",
+    "error-handler",
+    "nestjs"
+  ],
+  "bugs": {
+    "url": "https://github.com/ozkanonur/nestjs-enlighten/issues"
+  },
+  "homepage": "https://github.com/ozkanonur/nestjs-enlighten#readme"
+}
