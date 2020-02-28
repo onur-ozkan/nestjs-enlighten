@@ -1,3 +1,3 @@
-import { HttpExceptionFilter } from './Filters/http-exception.filter'
+import { ExceptionFilter } from './Filters/exception.filter'
 
-export const NestEnlighten = HttpExceptionFilter
+export const NestEnlighten = ExceptionFilter
