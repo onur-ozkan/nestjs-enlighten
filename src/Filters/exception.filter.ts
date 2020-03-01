@@ -11,9 +11,11 @@ export class ExceptionFilter extends BaseExceptionFilter {
     const response = ctx.getResponse<any>();
     const request = ctx.getRequest<any>();
 
+    const stylingRaw = fs.readFileSync(`${__dirname}/../../assets/style/index.css`, 'utf8');
     const compiledView = ejs.render(fs.readFileSync(`${__dirname}/../views/index.ejs`, 'utf8'), {
       response: exception.response,
-      baseUrl: `${request.protocol}://${request.headers.host}/`
+      baseUrl: `${request.protocol}://${request.headers.host}/`,
+      stylingRaw,
     });
 
     response.status(response.statusCode).send(compiledView);
