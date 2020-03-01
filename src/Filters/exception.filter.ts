@@ -10,24 +10,12 @@ export class ExceptionFilter extends BaseExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<any>();
     const request = ctx.getRequest<any>();
-    const status = exception.getStatus();
 
-    const compiledView = ejs.render(fs.readFileSync(`${__dirname}/../views/index.ejs`, 'utf8'));
+    const compiledView = ejs.render(fs.readFileSync(`${__dirname}/../views/index.ejs`, 'utf8'), {
+      response: exception.response,
+      baseUrl: `${request.protocol}://${request.headers.host}/`
+    });
 
-    // response
-    //   .status(content)
-    //   .json({
-    //     statusCode: status,
-    //     timestamp: new Date().toISOString(),
-    //     path: request.url,
-    //   });
-
-     /**
-      * TODO
-      * Deal with errors and render them on HTML page
-      */
-
-    response.status(status).send(compiledView);
-
+    response.status(response.statusCode).send(compiledView);
   }
 }
