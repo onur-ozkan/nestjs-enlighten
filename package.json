@@ -10,7 +10,8 @@
     "build": "rm -rf dist && tsc -p . && mkdir dist/views && cp views/* dist/views/"
   },
   "dependencies": {
-    "ejs": "^3.0.1"
+    "ejs": "^3.0.1",
+    "stack-trace": "^0.0.10"
   },
   "devDependencies": {
     "@nestjs/common": "^6.11.8",
