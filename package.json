@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "ejs": "^3.0.1",
-    "stack-trace": "^0.0.10"
+    "stack-trace": "^0.0.10",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@nestjs/common": "^6.11.8",
