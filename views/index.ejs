@@ -213,80 +213,162 @@
               </button></li>
           </ul>
         </nav>
-        <div class="tab-main"><div class="stack" selected-frame-number="45"><div class="stack-nav"><div class="stack-nav-actions"><div class="stack-nav-arrows"><button title="Frame up (Key:K)" class="stack-nav-arrow"><svg class="icon"><use xlink:href="#arrow-up-icon"></use></svg></button> <button title="Frame down (Key:J)" class="stack-nav-arrow"><svg class="icon"><use xlink:href="#arrow-down-icon"></use></svg></button></div> <div class="px-4"><button class="ml-auto link-dimmed">
-                    Expand vendor frames
-                </button></div></div> <div class="stack-frames"><ol class="stack-frames-scroll scrollbar"><li><ul class="stack-frame-group stack-frame-group-vendor"><li class="stack-frame | cursor-pointer stack-frame-selected"><div class="stack-frame-number">45</div> <div class="stack-frame-text"><header class="stack-frame-header mb-1"><span class="inline-flex justify-start items-baseline stack-frame-path"><span class="ui-path text-gray-800"><span>vendor/<wbr></span><span>laravel/<wbr></span><span>framework/<wbr></span><span>src/<wbr></span><span>Illuminate/<wbr></span><span>View/<wbr></span><span class="font-semibold">FileViewFinder</span><span class="">.php</span><!----></span>  <!----></span></header> <span class="stack-frame-exception-class"><span class="ui-exception-class stack-frame-exception-class"><span class="opacity-75">Illuminate\<wbr></span><span class="opacity-75">View\<wbr></span><span>FileViewFinder<wbr></span><!----></span></span></div> <div class="stack-frame-line"><span class="ui-line-number">
-    :<span class="font-mono">137</span></span></div></li></ul></li><li class="stack-frame-group stack-frame-group-vendor"><div class="stack-frame | cursor-pointer"><button class="stack-frame-number"><svg class="icon align-middle text-gray-500"><use xlink:href="#plus-icon"></use></svg></button> <div class="span-2 stack-frame-text"><button class="text-left text-gray-500">
-                3 vendor frames…
-            </button></div></div></li><li><ul class="stack-frame-group"><li class="stack-frame | cursor-pointer"><div class="stack-frame-number">41</div> <div class="stack-frame-text"><header class="stack-frame-header mb-1"><span class="inline-flex justify-start items-baseline stack-frame-path"><span class="ui-path text-purple-800"><span>routes/<wbr></span><span class="font-semibold">web</span><span class="">.php</span><!----></span>  <!----></span></header> <span class="stack-frame-exception-class"><span class="ui-exception-class stack-frame-exception-class"><span class="opacity-75">Illuminate\<wbr></span><span class="opacity-75">Routing\<wbr></span><span>RouteFileRegistrar<wbr></span><!----></span></span></div> <div class="stack-frame-line"><span class="ui-line-number">
-    :<span class="font-mono">17</span></span></div></li></ul></li><li class="stack-frame-group stack-frame-group-vendor"><div class="stack-frame | cursor-pointer"><button class="stack-frame-number"><svg class="icon align-middle text-gray-500"><use xlink:href="#plus-icon"></use></svg></button> <div class="span-2 stack-frame-text"><button class="text-left text-gray-500">
-                38 vendor frames…
-            </button></div></div></li><li><ul class="stack-frame-group"><li class="stack-frame | cursor-pointer"><div class="stack-frame-number">2</div> <div class="stack-frame-text"><header class="stack-frame-header"><span class="inline-flex justify-start items-baseline stack-frame-path"><span class="ui-path text-purple-800"><span>public/<wbr></span><span class="font-semibold">index</span><span class="">.php</span><!----></span>  <!----></span></header> <!----></div> <div class="stack-frame-line"><span class="ui-line-number">
-    :<span class="font-mono">55</span></span></div></li><li class="stack-frame | cursor-pointer"><div class="stack-frame-number">1</div> <div class="stack-frame-text"><!----> <!----></div> <div class="stack-frame-line"><span class="ui-line-number">
-    :<span class="font-mono">21</span></span></div></li></ul></li></ol></div></div> <div class="stack-main"><div class="stack-main-header"><div class="grid cols-auto gap-2 justify-start items-center"><span class="ui-exception-class"><span class="opacity-75">Illuminate\<wbr></span><span class="opacity-75">View\<wbr></span><span>FileViewFinder<wbr></span><span class="opacity-75">::findInPaths</span></span></div> <span class="inline-flex justify-start items-baseline mt-1"><span class="ui-path"><span>vendor/<wbr></span><span>laravel/<wbr></span><span>framework/<wbr></span><span>src/<wbr></span><span>Illuminate/<wbr></span><span>View/<wbr></span><span class="font-semibold">FileViewFinder</span><span class="">.php</span><span>:137</span></span>  <a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=137" class="ml-2 inline-block text-sm text-purple-400 hover:text-purple-500"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></span></div> <div class="stack-main-content"><div class="stack-viewer scrollbar"><div class="stack-ruler"><div class="stack-lines"><p class="stack-line cursor-pointer">
+        <div class="tab-main">
+          <div class="stack" selected-frame-number="45">
+            <div class="stack-nav">
+              <div class="stack-nav-actions">
+              </div>
+              <div class="stack-frames">
+                <ol class="stack-frames-scroll scrollbar">
+
+                  <% for(const index in errorStack) {%>
+					<li>
+						<ul class="stack-frame-group stack-frame-group-vendor">
+						<!-- stack-frame-selected --><li class="stack-frame | cursor-pointer stack-frame">
+							<div class="stack-frame-number"><%= [index] %></div>
+							<div class="stack-frame-text">
+							<header class="stack-frame-header mb-1"><span
+								class="inline-flex justify-start items-baseline stack-frame-path"><span
+									class="ui-path text-gray-800">
+									<%= errorStack[index].fileName %>
+								</span>
+								</span></header> <span class="stack-frame-exception-class"><span
+								class="ui-exception-class stack-frame-exception-class"><span
+									class="opacity-75"><%= errorStack[index].functionName %><wbr></span>
+									</span></span>
+							</div>
+							<div class="stack-frame-line"><span class="ui-line-number">
+								:<span class="font-mono"><%= errorStack[index].lineNumber %></span></span></div>
+						</li>
+						</ul>
+					</li>
+				  <% } %>
+
+                </ol>
+              </div>
+            </div>
+            <div class="stack-main">
+              <div class="stack-main-header">
+                <div class="grid cols-auto gap-2 justify-start items-center"><span class="ui-exception-class"><span
+                      class="opacity-75">Illuminate\<wbr></span><span
+                        class="opacity-75">View\<wbr></span><span>FileViewFinder<wbr></span><span
+                            class="opacity-75">::findInPaths</span></span></div> <span
+                  class="inline-flex justify-start items-baseline mt-1"><span
+                    class="ui-path"><span>vendor/<wbr></span><span>laravel/<wbr></span><span>framework/<wbr></span><span>src/<wbr></span><span>Illuminate/<wbr></span><span>View/<wbr></span><span
+                                  class="font-semibold">FileViewFinder</span><span
+                                  class="">.php</span><span>:137</span></span> <a
+                                href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=137"
+                                class="ml-2 inline-block text-sm text-purple-400 hover:text-purple-500"><svg
+                                  class="icon">
+                                  <use xlink:href="#pencil-icon"></use>
+                                </svg></a></span>
+              </div>
+              <div class="stack-main-content">
+                <div class="stack-viewer scrollbar">
+                  <div class="stack-ruler">
+                    <div class="stack-lines">
+                      <p class="stack-line cursor-pointer">
                         122
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         123
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         124
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         125
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         126
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         127
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         128
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         129
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         130
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         131
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         132
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         133
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         134
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         135
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         136
-                    </p><p class="stack-line cursor-pointer stack-line-highlight">
+                      </p>
+                      <p class="stack-line cursor-pointer stack-line-highlight">
                         137
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         138
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         139
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         140
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         141
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         142
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         143
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         144
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         145
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         146
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         147
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         148
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         149
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         150
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         151
-                    </p><p class="stack-line cursor-pointer">
+                      </p>
+                      <p class="stack-line cursor-pointer">
                         152
-                    </p></div></div> <pre class="stack-code light"><p class="stack-code-line"><span>     * @param  <span class="hljs-keyword">array</span>  $paths</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=122" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     * @<span class="hljs-keyword">return</span> string</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=123" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     *</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=124" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     * @throws \InvalidArgumentException</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=125" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     */</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=126" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findInPaths</span><span class="hljs-params">($name, $paths)</span></span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=127" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-function">    </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=128" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        <span class="hljs-keyword">foreach</span> ((<span class="hljs-keyword">array</span>) $paths <span class="hljs-keyword">as</span> $path) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=129" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">$this</span>-&gt;getPossibleViewFiles($name) <span class="hljs-keyword">as</span> $file) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=130" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;files-&gt;exists($viewPath = $path.<span class="hljs-string">'/'</span>.$file)) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=131" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                    <span class="hljs-keyword">return</span> $viewPath;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=132" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=133" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=134" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=135" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=136" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line stack-code-line-highlight"><span>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InvalidArgumentException(<span class="hljs-string">"View [{$name}] not found."</span>);</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=137" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=138" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=139" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-comment">/**</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=140" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * Get an array of possible view files.</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=141" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     *</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=142" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  string  $name</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=143" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> array</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=144" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     */</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=145" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPossibleViewFiles</span><span class="hljs-params">($name)</span></span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=146" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-function">    </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=147" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        <span class="hljs-keyword">return</span> array_map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($extension)</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=148" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            <span class="hljs-keyword">return</span> str_replace(<span class="hljs-string">'.'</span>, <span class="hljs-string">'/'</span>, $name).<span class="hljs-string">'.'</span>.$extension;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=149" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        }, <span class="hljs-keyword">$this</span>-&gt;extensions);</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=150" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=151" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=152" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p>
-            </pre></div></div></div></div></div>
+                      </p>
+                    </div>
+                  </div>
+                  <pre class="stack-code light"><p class="stack-code-line"><span>     * @param  <span class="hljs-keyword">array</span>  $paths</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=122" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     * @<span class="hljs-keyword">return</span> string</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=123" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     *</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=124" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     * @throws \InvalidArgumentException</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=125" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>     */</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=126" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findInPaths</span><span class="hljs-params">($name, $paths)</span></span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=127" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-function">    </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=128" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        <span class="hljs-keyword">foreach</span> ((<span class="hljs-keyword">array</span>) $paths <span class="hljs-keyword">as</span> $path) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=129" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">$this</span>-&gt;getPossibleViewFiles($name) <span class="hljs-keyword">as</span> $file) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=130" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;files-&gt;exists($viewPath = $path.<span class="hljs-string">'/'</span>.$file)) {</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=131" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                    <span class="hljs-keyword">return</span> $viewPath;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=132" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>                }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=133" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=134" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=135" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=136" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line stack-code-line-highlight"><span>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InvalidArgumentException(<span class="hljs-string">"View [{$name}] not found."</span>);</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=137" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=138" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=139" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-comment">/**</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=140" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * Get an array of possible view files.</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=141" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     *</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=142" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  string  $name</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=143" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> array</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=144" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-comment">     */</span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=145" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPossibleViewFiles</span><span class="hljs-params">($name)</span></span></span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=146" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span><span class="hljs-function">    </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=147" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        <span class="hljs-keyword">return</span> array_map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($extension)</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=148" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>            <span class="hljs-keyword">return</span> str_replace(<span class="hljs-string">'.'</span>, <span class="hljs-string">'/'</span>, $name).<span class="hljs-string">'.'</span>.$extension;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=149" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>        }, <span class="hljs-keyword">$this</span>-&gt;extensions);</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=150" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>    }</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=151" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p><p class="stack-code-line"><span>&nbsp;</span><a href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=152" class="editor-link"><svg class="icon"><use xlink:href="#pencil-icon"></use></svg></a></p>
+            </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
