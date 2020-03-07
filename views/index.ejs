@@ -18,10 +18,10 @@
 	new Vue({
 		el: '#app',
 		data: {
-			isSolutionVisible: true,
 			isLoading: true,
+			isSolutionVisible: true,
 			errorStack: <%- JSON.stringify(errorStack) %>,
-			selectedErrorStack: 0,
+			selectedErrorStackIndex: 0,
 		},
 		mounted() {
 			document.getElementById('overlay').style.visibility = "hidden";
@@ -31,7 +31,7 @@
 				this.isSolutionVisible ^= true;
 			},
 			handleFileSelection: function (fileIndex) {
-				this.selectedErrorStack = fileIndex;
+				this.selectedErrorStackIndex = fileIndex;
 				setTimeout(() => Prism.highlightAll(), 1);
 
 			}
@@ -246,9 +246,9 @@
 									<li>
 										<ul class="stack-frame-group stack-frame-group-vendor">
 											<!-- stack-frame-selected -->
-											<li class="stack-frame | cursor-pointer stack-frame">
-												<div class="stack-frame-number"><%= [index] %></div>
-												<div v-on:click="handleFileSelection('<%= [index] %>')"
+											<li class="stack-frame | cursor-pointer stack-frame" :class="{ 'stack-frame-selected' : selectedErrorStackIndex == '<%= [index] %>'}">
+												<div class="stack-frame-number"><%= Number(index)+1 %></div>
+												<div v-on:click="handleFileSelection('<%= index %>')"
 													class="stack-frame-text">
 													<header class="stack-frame-header mb-1"><span
 															class="inline-flex justify-start items-baseline stack-frame-path"><span
@@ -292,102 +292,17 @@
 								<div class="stack-viewer scrollbar">
 									<div class="stack-ruler">
 										<div class="stack-lines">
-											<p class="stack-line cursor-pointer">
-												122
-											</p>
-											<p class="stack-line cursor-pointer">
-												123
-											</p>
-											<p class="stack-line cursor-pointer">
-												124
-											</p>
-											<p class="stack-line cursor-pointer">
-												125
-											</p>
-											<p class="stack-line cursor-pointer">
-												126
-											</p>
-											<p class="stack-line cursor-pointer">
-												127
-											</p>
-											<p class="stack-line cursor-pointer">
-												128
-											</p>
-											<p class="stack-line cursor-pointer">
-												129
-											</p>
-											<p class="stack-line cursor-pointer">
-												130
-											</p>
-											<p class="stack-line cursor-pointer">
-												131
-											</p>
-											<p class="stack-line cursor-pointer">
-												132
-											</p>
-											<p class="stack-line cursor-pointer">
-												133
-											</p>
-											<p class="stack-line cursor-pointer">
-												134
-											</p>
-											<p class="stack-line cursor-pointer">
-												135
-											</p>
-											<p class="stack-line cursor-pointer">
-												136
-											</p>
-											<p class="stack-line cursor-pointer stack-line-highlight">
-												137
-											</p>
-											<p class="stack-line cursor-pointer">
-												138
-											</p>
-											<p class="stack-line cursor-pointer">
-												139
-											</p>
-											<p class="stack-line cursor-pointer">
-												140
-											</p>
-											<p class="stack-line cursor-pointer">
-												141
-											</p>
-											<p class="stack-line cursor-pointer">
-												142
-											</p>
-											<p class="stack-line cursor-pointer">
-												143
-											</p>
-											<p class="stack-line cursor-pointer">
-												144
-											</p>
-											<p class="stack-line cursor-pointer">
-												145
-											</p>
-											<p class="stack-line cursor-pointer">
-												146
-											</p>
-											<p class="stack-line cursor-pointer">
-												147
-											</p>
-											<p class="stack-line cursor-pointer">
-												148
-											</p>
-											<p class="stack-line cursor-pointer">
-												149
-											</p>
-											<p class="stack-line cursor-pointer">
-												150
-											</p>
-											<p class="stack-line cursor-pointer">
-												151
-											</p>
-											<p class="stack-line cursor-pointer">
-												152
+											<p
+												v-for="(line, index) in errorStack[selectedErrorStackIndex].errorLines"
+												:key="index"
+												class="stack-line cursor-pointer"
+												:class="{'stack-line-highlight': line == errorStack[selectedErrorStackIndex].lineNumber}"
+											>
+											  {{ line }}
 											</p>
 										</div>
 									</div>
-									<pre class="stack-code light"><code id="code-view" class="language-js"><p class="stack-code-line" v-for="(stack, index) in errorStack[selectedErrorStack].codeRaw" :key="index+selectedErrorStack">{{ stack }}</code></pre>
+									<pre class="stack-code light"><code id="code-view" class="language-js"><p class="stack-code-line" v-for="(stack, index) in errorStack[selectedErrorStackIndex].codeRaw" :key="index+selectedErrorStackIndex">{{ stack }}</code></pre>
 								</div>
 							</div>
 						</div>
