@@ -1330,7 +1330,7 @@ html.theme-dark .dropdown {
   overflow: auto;
   background-color: rgb(255, 255, 255);
   background-color: var(--white);
-  font-size: 0.9rem;
+  font-size: 0.75rem;
 }
 
 .stack-ruler {

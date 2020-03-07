@@ -18,6 +18,12 @@ export class StackResolverService {
 			const lines = data.split(/\r?\n/);
 			errorStack[index].codeRaw = lines.slice((errorStack[index].lineNumber - 16) >= 0 ? errorStack[index].lineNumber - 16 : 0, errorStack[index].lineNumber + 15)
 
+			// Get 15 lines above and below of the error line
+			errorStack[index].errorLines = []
+			lines.map((_line, lineIndex) => {
+				if (lineIndex <= (errorStack[index].lineNumber + 15) && lineIndex > (errorStack[index].lineNumber-16) ) errorStack[index].errorLines.push(lineIndex)
+			})
+
 			// Update absolute paths with relative ones.
 			const relativeFileName = errorStack[index].getFileName().indexOf(process.cwd())
 			if (relativeFileName > -1) {

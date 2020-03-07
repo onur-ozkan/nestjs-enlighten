@@ -210,13 +210,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="absolute left-0 bottom-0 w-full h-8 mb-2 px-4 text-sm z-10">
-					<ul class="grid cols-auto place-center gap-1">
-						<li><a class="grid place-center h-8 min-w-8 px-2 rounded-full bg-tint-200 font-semibold">
-								1
-							</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 		<div class="layout-col mt-12">
@@ -302,7 +295,7 @@
 											</p>
 										</div>
 									</div>
-									<pre class="stack-code light"><code id="code-view" class="language-js"><p class="stack-code-line" v-for="(stack, index) in errorStack[selectedErrorStackIndex].codeRaw" :key="index+selectedErrorStackIndex">{{ stack }}</code></pre>
+									<pre class="stack-code light"><code id="code-view" class="language-js"><p class="stack-code-line" :class="{'stack-code-line-highlight': errorStack[selectedErrorStackIndex].errorLines[index] == errorStack[selectedErrorStackIndex].lineNumber}" v-for="(stack, index) in errorStack[selectedErrorStackIndex].codeRaw" :key="index+selectedErrorStackIndex">{{ stack }}</code></pre>
 								</div>
 							</div>
 						</div>
