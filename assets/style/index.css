@@ -25,6 +25,14 @@ code {
   font-size: 1em;
 }
 
+:focus {
+  outline:none;
+}
+
+::-moz-focus-inner {
+  border:0;
+}
+
 button,
 input,
 select,

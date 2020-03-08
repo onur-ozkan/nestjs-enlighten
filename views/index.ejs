@@ -20,6 +20,9 @@
 		data: {
 			isLoading: true,
 			isSolutionVisible: true,
+			baseUrl: <%- JSON.stringify(baseUrl) %>,
+			selectedTab: 'stack-tab',
+			requestStack: <%- JSON.stringify(requestStack) %>,
 			errorStack: <%- JSON.stringify(errorStack) %>,
 			selectedErrorStackIndex: 0,
 		},
@@ -30,10 +33,13 @@
 			handleSolutionBarVisibility: function () {
 				this.isSolutionVisible ^= true;
 			},
+			handleTabSelection: function (tabName) {
+				this.selectedTab = tabName;
+				setTimeout(() => Prism.highlightAll(), 1);
+			},
 			handleFileSelection: function (fileIndex) {
 				this.selectedErrorStackIndex = fileIndex;
 				setTimeout(() => Prism.highlightAll(), 1);
-
 			}
 		},
 		watch: {
@@ -121,8 +127,8 @@
 									<%= response.message %>
 								</div>
 							</div>
-							<div><a href=<%= baseUrl %> target="_blank" class="ui-url">
-									<%= baseUrl %>
+							<div><a :href="baseUrl" target="_blank" class="ui-url">
+									{{ baseUrl }}
 								</a></div>
 						</div>
 					</div>
@@ -216,9 +222,21 @@
 			<div class="tabs">
 				<nav class="tab-nav">
 					<ul class="tab-bar">
-						<li><button class="tab tab-active">
+						<li>
+							<button v-on:click="handleTabSelection('stack-tab')" style="cursor: pointer;" class="tab" :class="{'tab-active': selectedTab === 'stack-tab'}">
 								Stack trace
-							</button></li>
+							</button>
+						</li>
+						<li>
+							<button v-on:click="handleTabSelection('request-tab')" style="cursor: pointer;" class="tab" :class="{'tab-active': selectedTab === 'request-tab'}">
+								Request
+							</button>
+						</li>
+						<li>
+							<button style="cursor: pointer;" class="tab">
+								Environment
+							</button>
+						</li>
 					</ul>
 					<div class="tab-delimiter"></div>
 					<ul class="tab-bar">
@@ -228,7 +246,7 @@
 					</ul>
 				</nav>
 				<div class="tab-main">
-					<div class="stack" selected-frame-number="45">
+					<div v-if="selectedTab === 'stack-tab'" class="stack">
 						<div class="stack-nav">
 							<div class="stack-nav-actions">
 							</div>
@@ -298,6 +316,36 @@
 									<pre class="stack-code light"><code id="code-view" class="language-js"><p class="stack-code-line" :class="{'stack-code-line-highlight': errorStack[selectedErrorStackIndex].errorLines[index] == errorStack[selectedErrorStackIndex].lineNumber}" v-for="(stack, index) in errorStack[selectedErrorStackIndex].codeRaw" :key="index+selectedErrorStackIndex">{{ stack }}</code></pre>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div v-else-if="selectedTab === 'request-tab'" class="tab-content">
+						<div class="layout-col">
+							<div class="tab-content-section border-none">
+								<h3 class="definition-list-title"> Request </h3>
+								<dl class="definition-list">
+									<dt class="definition-label"> URL </dt><dd class="definition-value">{{ baseUrl }}</dd>
+									<dt class="definition-label"> Method </dt><dd class="definition-value">{{ requestStack.method }}</dd>
+								</dl>
+							</div>
+							<div class="tab-content-section">
+								<h3 class="definition-list-title">Headers</h3>
+								<dl v-for="item, index in requestStack.headers" class="definition-list">
+									<dt class="definition-label">{{ index }}</dt><dd class="definition-value">{{ item }}</dd><br>
+								</dl>
+							</div>
+							<div class="tab-content-section">
+								<h3 class="definition-list-title">Query String</h3>
+								<div v-for="item, index in requestStack.query" class="definition-list">
+									<dt v-if="index" class="definition-label">{{ index }}</dt><dd class="definition-value">{{ item }}</dd><br>
+								</div>
+							</div>
+							<div class="tab-content-section">
+								<h3 class="definition-list-title">Body</h3>
+								<div v-for="item, index in requestStack.body" class="definition-list">
+									<dt v-if="index" class="definition-label">{{ index }}</dt><dd class="definition-value">{{ item }}</dd><br>
+								</div>
+							</div>
+							<div class="tab-content-section"></div>
 						</div>
 					</div>
 				</div>
