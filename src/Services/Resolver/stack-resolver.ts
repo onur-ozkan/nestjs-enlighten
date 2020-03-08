@@ -10,7 +10,7 @@ export class StackResolverService {
 	}
 
 	public async getProperErrorStack(): Promise<ErrorStack> {
-		let errorStack = await stackTrace.parse(this.exception)
+		const errorStack = await stackTrace.parse(this.exception)
 
 		await errorStack.map(async (_stack, index) => {
 			// Resolve the exception line and add it to stack object as property.

@@ -1,4 +1,5 @@
 import { Errors } from './State'
+import { ErrorStack } from '../../@types'
 import * as stackTrace from 'stack-trace'
 
 export class ErrorService {
@@ -13,7 +14,7 @@ export class ErrorService {
 	}
 
 	public getSolution(errorObject: any): string {
-		const errorStack = stackTrace.parse(this.exception)
+		const errorStack: ErrorStack[] = stackTrace.parse(this.exception)
 		return (!errorStack[0].typeName || !errorStack[0].methodName) ? errorObject.solutionOptions.notIntentional : errorObject.solutionOptions.intentional
 	}
 }
