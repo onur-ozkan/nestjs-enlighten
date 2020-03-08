@@ -21,14 +21,16 @@ export class ViewCompilerService {
 		const errorStack = await new StackResolverService(this.exception).getProperErrorStack()
 		const requestStack = new RequestResolverService(this.request).getRequestData()
 
-		const stylingRaw = fs.readFileSync(`${__dirname}/../../../assets/style/index.css`, 'utf8')
+		const cssRaw = fs.readFileSync(`${__dirname}/../../../assets/style/index.css`, 'utf8')
+		const prismJsRaw = fs.readFileSync(`${__dirname}/../../../assets/libs/prism-js/prism.min.js`)
 		const compiledView = ejs.render(fs.readFileSync(`${__dirname}/../../views/index.ejs`, 'utf8'), {
 			response: this.exception.response,
 			baseUrl: `${this.request.protocol}://${this.request.headers.host}/`,
 			projectPath: process.env.PWD,
 			errorStack,
 			requestStack,
-			stylingRaw,
+			cssRaw,
+			prismJsRaw,
 			errorObject,
 			errorSolution,
 		})
