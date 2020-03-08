@@ -284,19 +284,16 @@
 						</div>
 						<div class="stack-main">
 							<div class="stack-main-header">
-								<div class="grid cols-auto gap-2 justify-start items-center"><span
-										class="ui-exception-class"><span class="opacity-75">Illuminate\<wbr></span><span
-												class="opacity-75">View\<wbr></span><span>FileViewFinder<wbr></span><span
-														class="opacity-75">::findInPaths</span></span></div> <span
-									class="inline-flex justify-start items-baseline mt-1"><span
-										class="ui-path"><span>vendor/<wbr></span><span>laravel/<wbr></span><span>framework/<wbr></span><span>src/<wbr></span><span>Illuminate/<wbr></span><span>View/<wbr></span><span
-																	class="font-semibold">FileViewFinder</span><span
-																	class="">.php</span><span>:137</span></span> <a
-																href="phpstorm://open?file=%2FUsers%2Fnimda%2FDevspace%2Fblog%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FView%2FFileViewFinder.php&amp;line=137"
-																class="ml-2 inline-block text-sm text-purple-400 hover:text-purple-500"><svg
-																	class="icon">
-																	<use xlink:href="#pencil-icon"></use>
-																</svg></a></span>
+								<div class="grid cols-auto gap-2 justify-start items-center">
+									<span class="ui-exception-class">
+										<span class="opacity-75">{{ errorStack[selectedErrorStackIndex].functionName }}</span>
+									</span>
+								</div>
+								<span class="inline-flex justify-start items-baseline mt-1">
+									<span class="ui-path">
+										<span>{{ errorStack[selectedErrorStackIndex].fileName }}:{{ errorStack[selectedErrorStackIndex].lineNumber }}</span>
+									</span>
+								</span>
 							</div>
 							<div class="stack-main-content">
 								<div class="stack-viewer scrollbar">
