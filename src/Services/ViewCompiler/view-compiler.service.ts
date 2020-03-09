@@ -26,7 +26,7 @@ export class ViewCompilerService {
 		const environmentStack: object = new EnvironmentResolverService().getEnvironmentList()
 		const machineStack: MachineStack = new MachineResolverService().getProperMachineStack()
 
-		const cssRaw: string = fs.readFileSync(`${__dirname}/../../../assets/style/index.css`, 'utf8')
+		const cssRaw: string = fs.readFileSync(`${__dirname}/../../../assets/style/index.min.css`, 'utf8')
 		const prismJsRaw: Buffer = fs.readFileSync(`${__dirname}/../../../assets/libs/prism-js/prism.min.js`)
 
 		const compiledView: ViewProps = ejs.render(fs.readFileSync(`${__dirname}/../../views/index.ejs`, 'utf8'), {
