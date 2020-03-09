@@ -1,5 +1,6 @@
-import * as stackTrace from 'stack-trace'
 import { ErrorStack } from '../../@types'
+
+import * as stackTrace from 'stack-trace'
 import * as fs from 'fs'
 
 export class StackResolverService {

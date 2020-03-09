@@ -1,11 +1,13 @@
-export class RequestResolverService {
-	private request: any
+import { RequestData } from '../../@types'
 
-	constructor(req: any) {
+export class RequestResolverService {
+	private request: RequestData
+
+	constructor(req: RequestData) {
 		this.request = req
 	}
 
-	public getRequestData() {
+	public getRequestData(): RequestData {
 		return {
 			headers: this.request.headers,
 			method: this.request.method,

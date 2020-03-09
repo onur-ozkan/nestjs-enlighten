@@ -1,4 +1,6 @@
-export const Errors = {
+import { ErrorState } from '../../../@types'
+
+export const Errors: ErrorState = {
 	"400": {
 		"error": "Bad Request",
 		"info": "The request had bad syntax or was inherently impossible to be satisfied.",
