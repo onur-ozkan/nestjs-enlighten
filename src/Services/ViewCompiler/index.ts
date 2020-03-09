@@ -2,6 +2,7 @@ import { ArgumentsHost } from '@nestjs/common'
 import { ErrorService } from '../Errors'
 import { StackResolverService } from '../Resolver'
 import { RequestResolverService } from '../Resolver'
+import { EnvironmentService } from '../Environments'
 
 import * as fs from 'fs'
 import * as ejs from 'ejs'
@@ -20,6 +21,7 @@ export class ViewCompilerService {
 		const errorSolution = new ErrorService(this.exception).getSolution(errorObject)
 		const errorStack = await new StackResolverService(this.exception).getProperErrorStack()
 		const requestStack = new RequestResolverService(this.request).getRequestData()
+		const environmentStack = new EnvironmentService().getEnvironmentList()
 
 		const cssRaw = fs.readFileSync(`${__dirname}/../../../assets/style/index.css`, 'utf8')
 		const prismJsRaw = fs.readFileSync(`${__dirname}/../../../assets/libs/prism-js/prism.min.js`)
@@ -29,6 +31,7 @@ export class ViewCompilerService {
 			projectPath: process.env.PWD,
 			errorStack,
 			requestStack,
+			environmentStack,
 			cssRaw,
 			prismJsRaw,
 			errorObject,
