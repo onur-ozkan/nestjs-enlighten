@@ -24,6 +24,7 @@
 			requestStack: <%- JSON.stringify(requestStack) %>,
 			errorStack: <%- JSON.stringify(errorStack) %>,
 			environmentStack: <%- JSON.stringify(environmentStack) %>,
+			machineStack: <%- JSON.stringify(machineStack) %>,
 			selectedErrorStackIndex: 0,
 		},
 		mounted() {
@@ -138,6 +139,11 @@
 							</button>
 						</li>
 						<li>
+							<button v-on:click="handleTabSelection('machine-tab')" style="cursor: pointer;" class="tab" :class="{'tab-active': selectedTab === 'machine-tab'}">
+								Machine
+							</button>
+						</li>
+						<li>
 							<button v-on:click="handleTabSelection('context-tab')" style="cursor: pointer;" class="tab" :class="{'tab-active': selectedTab === 'context-tab'}">
 								Context
 							</button>
@@ -166,7 +172,6 @@
 									<% for(const index in errorStack) {%>
 									<li>
 										<ul class="stack-frame-group stack-frame-group-vendor">
-											<!-- stack-frame-selected -->
 											<li class="stack-frame | cursor-pointer stack-frame" :class="{ 'stack-frame-selected' : selectedErrorStackIndex == '<%= [index] %>'}">
 												<div class="stack-frame-number"><%= Number(index)+1 %></div>
 												<div v-on:click="handleFileSelection('<%= index %>')"
@@ -269,9 +274,28 @@
 							<br>
 							<h3 class="definition-list-title">Environment Information</h3>
 							<div class="definition-list">
+								<dt class="definition-label">Node</dt>
+								<dd class="definition-value">
+									<pre class="stack-code light"><code id="code-view" class="language-json"><p class="stack-code-line">{{ machineStack.nodeEnvironment }}</code></pre>
+								</dd>
 								<dt class="definition-label">Nest Core Version</dt><dd class="definition-value">{{ environmentStack['npm_package_dependencies__nestjs_core'] }}</dd>
-								<dt class="definition-label">Node Version</dt><dd class="definition-value">{{ environmentStack['npm_package_devDependencies_typescript'] }}</dd>
 								<dt class="definition-label">Typescript Version</dt><dd class="definition-value">{{ environmentStack['npm_package_devDependencies_typescript'] }}</dd>
+							</div>
+						</div>
+					</div>
+					<div v-else-if="selectedTab === 'machine-tab'" class="tab-content">
+						<div class="layout-col">
+							<br>
+							<h3 class="definition-list-title">Machine Information</h3>
+							<div class="definition-list">
+								<dt class="definition-label">OS</dt><dd class="definition-value">{{ machineStack.os }}</dd>
+								<dt class="definition-label">Cpu</dt>
+								<dd class="definition-value">
+									<pre class="stack-code light"><code id="code-view" class="language-json"><p class="stack-code-line">{{ machineStack.cpu }}</code></pre>
+								</dd>								<dt class="definition-label">Network</dt>
+								<dd class="definition-value">
+									<pre class="stack-code light"><code id="code-view" class="language-json"><p class="stack-code-line">{{ machineStack.network }}</code></pre>
+								</dd>
 							</div>
 						</div>
 					</div>
@@ -289,7 +313,6 @@
 			</div>
 		</div>
 	</div>
-
 
 </body>
 
