@@ -1,8 +1,8 @@
 <div align="center">
 
-  # NestJS Enlighten
-  A laravel-ignition like error page for [Nestjs Framework](https://nestjs.com/)
-  <img src="https://user-images.githubusercontent.com/39852038/76228172-6e335980-6231-11ea-930c-ff833dce5b72.gif"/>
+# NestJS Enlighten
+A laravel-ignition like error page for [Nestjs Framework](https://nestjs.com/)
+<img src="https://user-images.githubusercontent.com/39852038/76228172-6e335980-6231-11ea-930c-ff833dce5b72.gif"/>
 
 </div>
 
@@ -47,6 +47,7 @@ export class AccountController {
 }
 ```
 
- ## TODO 
+## TODO 
 - [ ] Online Stack share feature
 - [ ] Tests
+- [ ] Add solution suggestions on unexpected errors in /src/Services/Errors/State/index.ts
