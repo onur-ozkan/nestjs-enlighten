@@ -10,9 +10,9 @@
     "build": "rm -rf dist && tsc -p . && mkdir dist/views && cp views/* dist/views/"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
-    "stack-trace": "^0.0.10",
-    "dotenv": "^8.2.0"
+    "stack-trace": "^0.0.10"
   },
   "devDependencies": {
     "@nestjs/common": "^6.11.8",
@@ -21,7 +21,9 @@
     "typescript": "^3.8.2",
     "rxjs": "^6.5.4",
     "@types/node": "^13.7.5",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "ts-jest": "^25.2.1",
+    "@types/jest": "^25.1.4"
   },
   "jest": {
     "moduleFileExtensions": [
