@@ -9,10 +9,16 @@ export interface NodeEnvironment {
 }
 
 export interface RequestData {
-	headers: object,
-	method: object,
-	body: object,
-	query: object,
+	headers: {
+		[index: string]: string
+	},
+	method: string,
+	body: {
+		[index: string]: string | number
+	},
+	query: {
+		[index: string]: string
+	},
 }
 
 export interface ErrorState {
