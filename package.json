@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "npm run build && jest",
     "build": "rm -rf dist && tsc -p . && mkdir dist/views && cp views/* dist/views/"
   },
   "dependencies": {
