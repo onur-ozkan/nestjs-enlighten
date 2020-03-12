@@ -23,7 +23,7 @@ export class ViewCompilerService {
 		const errorSolution: string = new ErrorService(this.exception).getSolution(errorObject)
 		const errorStack: ErrorStack = await new StackResolverService(this.exception).getProperErrorStack()
 		const requestStack: RequestData = new RequestResolverService(this.request).getRequestData()
-		const environmentStack: object = new EnvironmentResolverService().getEnvironmentList()
+		const environmentStack: object = new EnvironmentResolverService().getEnvironmentList(process.env)
 		const machineStack: MachineStack = new MachineResolverService().getProperMachineStack()
 
 		const cssRaw: string = fs.readFileSync(`${__dirname}/../../../assets/style/index.min.css`, 'utf8')
