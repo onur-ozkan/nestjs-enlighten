@@ -13,7 +13,7 @@ const exception = {
 const dummyErrorObject = new ErrorService(exception).errorDeterminator()
 
 it('Checks if errorDeterminator() returns correct exception data', () => {
-	expect(new ErrorService(exception).errorDeterminator()).toMatchObject({
+	expect(new ErrorService(exception).errorDeterminator()).toEqual({
 		error: expect.any(String),
 		info: expect.any(String),
 		solutionOptions: {
