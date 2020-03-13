@@ -1,4 +1,3 @@
-import { ArgumentsHost } from '@nestjs/common'
 import { DeterminedError, ErrorStack, RequestData, MachineStack, ViewProps } from '../../@types'
 import { ErrorService } from '../Errors/error.service'
 import { StackResolverService } from '../Resolver'
@@ -18,7 +17,7 @@ export class ViewCompilerService {
 		this.request = req
 	}
 
-	public async getCompiledView(): Promise<ViewProps> {
+	public async getCompiledView(): Promise<string> {
 		const errorObject: DeterminedError = new ErrorService(this.exception).errorDeterminator()
 		const errorSolution: string = new ErrorService(this.exception).getSolution(errorObject)
 		const errorStack: ErrorStack[] = await new StackResolverService(this.exception).getProperErrorStack()
@@ -28,8 +27,7 @@ export class ViewCompilerService {
 
 		const cssRaw: string = fs.readFileSync(`${__dirname}/../../../assets/style/index.min.css`, 'utf8')
 		const prismJsRaw: Buffer = fs.readFileSync(`${__dirname}/../../../assets/libs/prism-js/prism.min.js`)
-		/* istanbul ignore next */
-		const compiledView: ViewProps = ejs.render(fs.readFileSync(`${__dirname}/../../views/index.ejs`, 'utf8'), {
+		const compiledView: string = ejs.render(fs.readFileSync(`${__dirname}/../../../views/index.ejs`, 'utf8'), {
 			response: this.exception.response,
 			baseUrl: `${this.request.protocol}://${this.request.headers.host}/`,
 			projectPath: process.env.PWD,
