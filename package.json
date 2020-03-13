@@ -6,8 +6,10 @@
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run build && jest",
-    "build": "rm -rf dist && tsc -p . && mkdir dist/views && cp views/* dist/views/"
+	"test": "jest",
+	"clear": "rm -rf dist",
+	"build:pre": "npm run test && npm run clear",
+	"build": "npm run build:pre && tsc -p . && mkdir dist/views && cp views/* dist/views/"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
