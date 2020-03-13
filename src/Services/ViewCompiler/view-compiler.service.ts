@@ -13,9 +13,9 @@ export class ViewCompilerService {
 	private exception: any
 	private request: any
 
-	constructor(host: ArgumentsHost, exception: any) {
+	constructor(req: any, exception: any) {
 		this.exception = exception
-		this.request = host.switchToHttp().getRequest()
+		this.request = req
 	}
 
 	public async getCompiledView(): Promise<ViewProps> {
@@ -28,7 +28,7 @@ export class ViewCompilerService {
 
 		const cssRaw: string = fs.readFileSync(`${__dirname}/../../../assets/style/index.min.css`, 'utf8')
 		const prismJsRaw: Buffer = fs.readFileSync(`${__dirname}/../../../assets/libs/prism-js/prism.min.js`)
-
+		/* istanbul ignore next */
 		const compiledView: ViewProps = ejs.render(fs.readFileSync(`${__dirname}/../../views/index.ejs`, 'utf8'), {
 			response: this.exception.response,
 			baseUrl: `${this.request.protocol}://${this.request.headers.host}/`,
