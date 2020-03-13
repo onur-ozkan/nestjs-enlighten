@@ -1,9 +1,9 @@
 import { RequestData } from '../../@types'
 
 export class RequestResolverService {
-	private request: RequestData
+	private request: any
 
-	constructor(req: RequestData) {
+	constructor(req: any) {
 		this.request = req
 	}
 
@@ -16,3 +16,4 @@ export class RequestResolverService {
 		}
 	}
 }
+

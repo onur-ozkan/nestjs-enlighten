@@ -5,9 +5,10 @@ import { ViewCompilerService } from '../Services/ViewCompiler/view-compiler.serv
 @Catch()
 export class ExceptionFilter extends BaseExceptionFilter {
 	catch(exception: any, host: ArgumentsHost) {
+		const request = host.switchToHttp().getRequest()
 		const response = host.switchToHttp().getResponse()
 
-		new ViewCompilerService(host, exception).getCompiledView()
+		new ViewCompilerService(request, exception).getCompiledView()
 			.then(compiledView => {
 				response.status(response.statusCode).send(compiledView)
 			})

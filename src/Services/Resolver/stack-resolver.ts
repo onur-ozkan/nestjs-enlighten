@@ -10,10 +10,10 @@ export class StackResolverService {
 		this.exception = exception
 	}
 
-	public async getProperErrorStack(): Promise<ErrorStack> {
+	public async getProperErrorStack(): Promise<ErrorStack[]> {
 		const errorStack = await stackTrace.parse(this.exception)
 
-		await errorStack.map(async (_stack, index) => {
+		await errorStack.map(async (_stack: any, index: string | number) => {
 			// Resolve the exception line and add it to stack object as property.
 			const data = fs.readFileSync(errorStack[index].fileName, 'utf-8')
 			const lines = data.split(/\r?\n/);
