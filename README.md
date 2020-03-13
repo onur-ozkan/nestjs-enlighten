@@ -38,7 +38,7 @@ import { NestEnlighten } from 'nestjs-enlighten';
 
 @Controller('account')
 @UseFilters(new NestEnlighten())
-export class AccountController { 
+export class AccountController {
 
 @Get('/error-test')
   throwError() {
@@ -47,7 +47,7 @@ export class AccountController {
 }
 ```
 
-## TODO 
+## TODO
+- [x] Tests
 - [ ] Online Stack share feature
-- [ ] Tests
 - [ ] Add solution suggestions on unexpected errors in /src/Services/Errors/State/index.ts
