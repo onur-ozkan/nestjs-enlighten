@@ -69,7 +69,7 @@ export interface ViewProps {
 	response: any,
 	baseUrl: string,
 	projectPath: string,
-	errorStack: ErrorStack,
+	errorStack: ErrorStack[],
 	requestStack: RequestData,
 	environmentStack: object,
 	machineStack: MachineStack,
