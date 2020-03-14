@@ -2,6 +2,11 @@
 <div align="center">
 	
 # NestJS Enlighten
+<img src="https://img.shields.io/github/workflow/status/ozkanonur/nestjs-enlighten/Test%20and%20Build?logo=GitHub&label=Test%20and%20Build&style=flat-square"/>
+<img src="https://img.shields.io/github/workflow/status/ozkanonur/nestjs-enlighten/Test%20and%20Build?logo=GitHub&label=Automated%20NPM%20Pusher&style=flat-square"/>
+<img src="https://img.shields.io/npm/v/nestjs-enlighten?style=flat-square"/>
+<img src="https://img.shields.io/npm/l/nestjs-enlighten.svg?colorB=black&label=LICENSE&style=flat-square"/>
+
 ### A laravel-ignition like error page for [Nestjs Framework](https://nestjs.com/)
 
 </div>
