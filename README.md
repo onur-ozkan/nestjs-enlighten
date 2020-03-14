@@ -1,4 +1,3 @@
-<div align="center">
 
 # NestJS Enlighten
 ## A laravel-ignition like error page for [Nestjs Framework](https://nestjs.com/)
@@ -11,8 +10,6 @@ Nest Enlighten is a module for Nest Framework. With this module, you can render 
 
 ### Dark Theme
 <img src="https://user-images.githubusercontent.com/39852038/76683608-82eb6500-6616-11ea-9591-64efbbf57bd3.png"/>
-
-</div>
 
 ## Installation
 ### Install this package by running one of these following commands below
