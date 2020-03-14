@@ -4,7 +4,7 @@
 # NestJS Enlighten
 ### A laravel-ignition like error page for [Nestjs Framework](https://nestjs.com/)
 
-<div/>
+</div>
 
 ### About
 Nest Enlighten is a module for Nest Framework. With this module, you can render friendly error pages for spesific or global endpoints that includes a lot of detailed values behind the hood. Not only that, you can share your whole or spesific stack tabs to your team online. By that, you or your whole team can monitor your error situation much better and easier.
