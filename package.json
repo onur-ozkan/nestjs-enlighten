@@ -1,15 +1,15 @@
 {
   "name": "nestjs-enlighten",
-  "version": "0.0.3-beta",
+  "version": "0.0.4-beta",
   "description": "A laravel-ignition like error page for NestJS Apps",
   "author": "Onur Ozkan <onurozkan.dev@outlook.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
-	"test": "jest",
-	"clear": "rm -rf dist",
-	"build:pre": "npm run test && npm run clear",
-	"build": "npm run build:pre && tsc -p . && mkdir dist/views && cp views/* dist/views/"
+    "test": "jest",
+    "clear": "rm -rf dist",
+    "build:pre": "npm run test && npm run clear",
+    "build": "npm run build:pre && tsc -p . && mkdir dist/views && cp views/* dist/views/"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
