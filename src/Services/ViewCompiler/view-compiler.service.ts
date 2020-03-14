@@ -17,7 +17,7 @@ export class ViewCompilerService {
 		this.request = req
 	}
 
-	public async getCompiledView(): Promise<string> {
+	public async getCompiledView(theme: string): Promise<string> {
 		const errorObject: DeterminedError = new ErrorService(this.exception).errorDeterminator()
 		const errorSolution: string = new ErrorService(this.exception).getSolution(errorObject)
 		const errorStack: ErrorStack[] = await new StackResolverService(this.exception).getProperErrorStack()
@@ -30,6 +30,7 @@ export class ViewCompilerService {
 		const compiledView: string = ejs.render(fs.readFileSync(`${__dirname}/../../../views/index.ejs`, 'utf8'), {
 			response: this.exception.response,
 			baseUrl: `${this.request.protocol}://${this.request.headers.host}/`,
+			theme,
 			projectPath: process.env.PWD,
 			errorStack,
 			requestStack,
