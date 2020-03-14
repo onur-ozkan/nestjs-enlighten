@@ -1,4 +1,4 @@
-name: Push new releases to NPM
+name: Automated NPM Pusher
 on:
   release:
     types: [published]
