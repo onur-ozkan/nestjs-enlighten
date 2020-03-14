@@ -42,7 +42,7 @@ yarn add nestjs-enlighten
 | disableEnlighten | false | boolean | false |
 | theme | false | 'theme-light' - 'theme-dark' | 'theme-light' |
 
-#### As a Global Filter
+#### As Global Filter
 ```typescript
 import { NestEnlighten } from 'nestjs-enlighten';
 
@@ -55,7 +55,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-#### Enable/Disable on spesific endpoints
+#### Enable/Disable for spesific endpoints
 ```typescript
 import { NestEnlighten } from 'nestjs-enlighten';
 
