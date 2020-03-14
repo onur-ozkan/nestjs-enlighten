@@ -1,5 +1,4 @@
+.github
 src
-dist/__mocks__
-dist/__tests__
 node_modules/
 .editorconfig
