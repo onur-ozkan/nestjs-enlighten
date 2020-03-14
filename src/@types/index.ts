@@ -1,5 +1,10 @@
 import * as os from 'os'
 
+export interface EnlightenConstructor {
+	disableEnlighten?: boolean,
+	theme?: 'theme-light' | 'theme-dark'
+}
+
 export interface NodeEnvironment {
 	name: string,
 	lts?: string,
