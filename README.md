@@ -2,6 +2,9 @@
 <p align="center">
 	
 # NestJS Enlighten
+<a href="">
+	<img src="https://www.codefactor.io/repository/github/ozkanonur/nestjs-enlighten/badge?style=flat-square" />
+</a>
 <a href="#"><img src="https://img.shields.io/github/workflow/status/ozkanonur/nestjs-enlighten/Test%20and%20Build?logo=GitHub&label=Test%20and%20Build&style=flat-square&sanitize=true" alt="Test and Build"/></a>
 <a href="#"><img src="https://img.shields.io/github/workflow/status/ozkanonur/nestjs-enlighten/Automated%20NPM%20Pusher?logo=GitHub&label=Automated%20NPM%20Pusher&style=flat-square&sanitize=true" alt="Automated NPM Pusher"/></a>
 <a href="#"><img src="https://img.shields.io/npm/v/nestjs-enlighten?style=flat-square&sanitize=true" alt="Package Version"/>
