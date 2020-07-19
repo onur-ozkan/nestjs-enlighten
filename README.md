@@ -1,6 +1,6 @@
 
 <p align="center">
-	
+
 # NestJS Enlighten
 <a href="">
 	<img src="https://www.codefactor.io/repository/github/ozkanonur/nestjs-enlighten/badge?style=flat-square" />
@@ -70,7 +70,7 @@ export class AccountController {
 
 @Get('/error-test')
   throwError() {
-    throw new Error('This is an error.');
+    throw new BadRequestException('Example message of 400 exception');
   }
 }
 ```
