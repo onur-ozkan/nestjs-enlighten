@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="robots" content="noindex, nofollow">
 
-	<title> <%= response.error %> </title>
+	<title> <%= response?.error %> </title>
 	<style type="text/css"> <%= cssRaw %> </style>
 </head>
 
@@ -69,11 +69,11 @@
 							<div class="text-2xl">
 								<span class="ui-exception-class">
 									<span>
-										<%= errorObject.error %> [<%= response.statusCode %>]
+										<%= errorObject.error %> [<%= response?.statusCode || 500 %>]
 									</span>
 								</span>
 								<div class="ui-exception-message">
-									<%= response.message %>
+									<%= response?.message %>
 								</div>
 							</div>
 							<div>
