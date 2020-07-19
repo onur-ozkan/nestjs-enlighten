@@ -11,7 +11,7 @@ export class ErrorService {
 	}
 
 	public errorDeterminator(): DeterminedError {
-		return Errors[this.exception.response.statusCode]
+		return Errors[this.exception?.response?.statusCode || '500']
 	}
 
 	public getSolution(errorObject: DeterminedError): string {
