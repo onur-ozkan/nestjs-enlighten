@@ -18,6 +18,9 @@ export class ExceptionFilter extends BaseExceptionFilter {
 	}
 
 	catch(exception: any, host: ArgumentsHost) {
+		if (host.getType() != 'http') {
+			return;
+		}
 		const request = host.switchToHttp().getRequest()
 		const response = host.switchToHttp().getResponse()
 
