@@ -1,6 +1,6 @@
 {
   "name": "nestjs-enlighten",
-  "version": "0.0.7-beta",
+  "version": "0.0.8-beta",
   "description": "A laravel-ignition like error page for NestJS Apps",
   "author": "Onur Ozkan <onurozkan.dev@outlook.com>",
   "license": "MIT",
